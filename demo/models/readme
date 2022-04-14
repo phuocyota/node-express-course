@@ -1,0 +1,4 @@
+các bước làm model
+b1: gọi thư viện mongoose
+b2: ánh xạ schema
+b3: xuất model

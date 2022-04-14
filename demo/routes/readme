@@ -1,0 +1,6 @@
+các bước làm route
+b1: gọi thư viện express
+b2: gọi route
+b3: cấu hình các api từ controller
+b4: điều hướng các api
+b5: xuất route
