@@ -15,25 +15,25 @@ router.get('/auth/google',
 router.get('/auth/google/callback',
   passport.authenticate('google', {
     successRedirect: '/result/google'
-  })
-)
+  }))
+
 passport.use(new GoogleStrategy({
     clientID: config.client_id,
     clientSecret: config.client_secret,
     callbackURL: config.callbackURL
   },
-  function (request, accessToken, refreshToken, profile, done) {
+  (request, accessToken, refreshToken, profile, done) => {
     router.get('/result/google', (req, res) => {
       res.json(profile._json)
     })
     return done(null, profile);
   }))
   
-passport.serializeUser(function (user, done) {
+passport.serializeUser((user, done) => {
   done(null, user);
 })
 
-passport.deserializeUser(function (user, done) {
+passport.deserializeUser((user, done) => {
   done(null, user);
 })
 
