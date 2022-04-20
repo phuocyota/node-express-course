@@ -20,10 +20,3 @@ if(verifier){
 function sha256(buffer) {
     return crypto.createHash('sha256').update(buffer).digest();
 }
-
-var code = verifier;
-ZSClient.getAccessTokenByOauthCode(code, function(response) {
-    if (response && response.access_token) {
-        ZSClient.setAccessToken(response.access_token);
-    }
-});
