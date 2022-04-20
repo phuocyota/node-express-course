@@ -1,6 +1,6 @@
 const ZaloSocial = require('zalo-sdk').ZaloSocial
 const config = require('../config/configZalo')
-var crypto = require("crypto")
+const crypto = require("crypto")
 
 function base64URLEncode(str) {
     return str.toString('base64')
@@ -20,3 +20,10 @@ if(verifier){
 function sha256(buffer) {
     return crypto.createHash('sha256').update(buffer).digest();
 }
+
+var code = verifier;
+ZSClient.getAccessTokenByOauthCode(code, function(response) {
+    if (response && response.access_token) {
+        ZSClient.setAccessToken(response.access_token);
+    }
+});
